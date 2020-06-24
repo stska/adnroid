@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="nameTextView">City</string>
+    <string name="weatherInfo">weather</string>
+    <string name="imageViewSample">Image of the weather</string>
+    <string name="temperatureText">temperature</string>
+    <string name="pressureText">pressure</string>
+    <string name="humidityText">humidity</string>
+    <string name="favouritebutton">Add</string>
+    <string name="addInFavourite">Add to favourite</string>
+</resources>
