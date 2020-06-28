@@ -9,6 +9,7 @@
         android:id="@+id/mainItemBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +86,9 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:contentDescription="@string/addInFavourite"
-            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+            android:stateListAnimator="@android:anim/fade_in"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

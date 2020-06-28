@@ -8,4 +8,13 @@
     <string name="humidityText">humidity</string>
     <string name="favouritebutton">Add</string>
     <string name="addInFavourite">Add to favourite</string>
+    <string name="tempFiveDays">Temperature for 5 days</string>
+    <string name="humidityForFiveDays">Humidity for 5 days</string>
+    <string name="cityNameView">City</string>
+    <string name="cityTempTextView">Temperature</string>
+    <string name="windSpeedTextView">wind speed</string>
+    <string name="humidityTextView">humidity</string>
+    <string name="pressureTextView">pressure</string>
+    <string name="searchTitle">Search</string>
+    <string name="landscapeStartImage">Landscape</string>
 </resources>
