@@ -17,4 +17,8 @@
     <string name="pressureTextView">pressure</string>
     <string name="searchTitle">Search</string>
     <string name="landscapeStartImage">Landscape</string>
+    <string name="modeViewId">Easter Egg</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="checkWeatherYandex">Check weather on Yandex</string>
 </resources>

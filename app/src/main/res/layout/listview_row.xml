@@ -14,21 +14,35 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:clickable="false"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        >
 
         <ImageView
             android:id="@+id/imageViewSample"
             android:layout_width="79dp"
             android:layout_height="match_parent"
             android:contentDescription="@string/imageViewSample"
-            app:srcCompat="@drawable/sunglasses" />
+            app:srcCompat="@drawable/sunglasses"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            />
 
         <LinearLayout
             android:id="@+id/innerItemBox"
             android:layout_width="86dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            >
 
             <TextView
                 android:id="@+id/nameTextView"
@@ -37,7 +51,10 @@
                 android:text="@string/nameTextView"
                 android:textColor="#000000"
                 android:textSize="19sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
             <TextView
                 android:id="@+id/weatherInfo"
@@ -47,7 +64,10 @@
                 android:textColor="#751515"
                 android:textIsSelectable="true"
                 android:textSize="16sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
         </LinearLayout>
 
@@ -55,28 +75,40 @@
             android:layout_width="136dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false">
 
             <TextView
                 android:id="@+id/temperatureText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/temperatureText"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
             <TextView
                 android:id="@+id/pressureText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pressureText"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
             <TextView
                 android:id="@+id/humidityText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/humidityText"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </LinearLayout>
 
         <ImageButton
@@ -88,7 +120,11 @@
             android:contentDescription="@string/addInFavourite"
 
             android:stateListAnimator="@android:anim/fade_in"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            app:srcCompat="@android:drawable/btn_star_big_on"
+
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
