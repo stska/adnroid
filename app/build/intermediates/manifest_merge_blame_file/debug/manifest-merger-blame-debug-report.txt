@@ -1,0 +1,58 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.myapplication"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:5:5-26:19
+12        android:allowBackup="true"
+12-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.1.0] C:\Users\stosl\.gradle\caches\transforms-2\files-2.1\03736cf4bc3669a69d502627b70a527e\core-1.1.0\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity android:name="com.example.myapplication.MainActivity" >
+21-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:12:9-18:20
+21-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:12:19-47
+22            <intent-filter>
+22-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:13:13-17:29
+23                <action android:name="android.intent.action.MAIN" />
+23-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:14:17-69
+23-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:14:25-66
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:16:17-77
+25-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:16:27-74
+26            </intent-filter>
+27        </activity>
+28        <activity android:name="com.example.myapplication.ChoosenCityActivity" >
+28-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:19:9-21:20
+28-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:19:19-54
+29        </activity>
+30
+31        <meta-data
+31-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:22:9-25:15
+32            android:name="preloaded_fonts"
+32-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:23:13-43
+33            android:resource="@array/preloaded_fonts" />
+33-->D:\Backup\MyFirstActivity(07.07)\MyFirstActivity\app\src\main\AndroidManifest.xml:24:13-54
+34    </application>
+35
+36</manifest>
