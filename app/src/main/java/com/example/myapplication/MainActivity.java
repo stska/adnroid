@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     //данные для подргуки в избранное. Особой роли не играбт, так как делал для тренировки. Потом буду подгружать туда данные из поиска
+    public void testMeth(){
 
+    }
 
     @SuppressLint("WrongViewCast")
     @Override

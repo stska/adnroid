@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -13,7 +14,12 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,7 +27,7 @@ import androidx.fragment.app.Fragment;
  * create an instance of this fragment.
  */
 public class CityWeatherDescription extends Fragment {
-
+    private FragmentActivity myContext;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -114,9 +120,37 @@ public class CityWeatherDescription extends Fragment {
         cityWindSpeedText.setText(weatherInfo.getWindArray()[mParam1]);
 
         cityWeatherLayout.setBackground(getActivity().getApplication().getResources().getDrawable(R.drawable.imagebg));
-
+        initRecycleView(view);
         return view;
 
+    }
+    private void initRecycleView(View view){
+
+        RecyclerView recyclerView = view.findViewById(R.id.weatherRecyleViewFiveDays);
+        recyclerView.setHasFixedSize(true);
+
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), LinearLayout.HORIZONTAL & LinearLayout.VERTICAL);
+        itemDecoration.setDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.separator,null));
+        recyclerView.addItemDecoration(itemDecoration);
+
+        //DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), LinearLayout.VERTICAL);
+       // itemDecoration.setDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.custom_ripple,null));
+       // recyclerView.addItemDecoration(itemDecoration);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+
+
+
+        TempRecycleVoewAdapter adapter = new  TempRecycleVoewAdapter();
+        recyclerView.setAdapter(adapter);
+
+
+    }
+    @Override
+    public void onAttach(Activity activity) {
+        myContext=(FragmentActivity) activity;
+        super.onAttach(activity);
     }
 
 }
