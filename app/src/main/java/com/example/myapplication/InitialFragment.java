@@ -1,19 +1,26 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,7 +76,7 @@ public class InitialFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
+      
             /*  Не работает зараза
                 getParentFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
             @Override
@@ -94,34 +101,40 @@ public class InitialFragment extends Fragment {
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.initial_fragment, container, false);
-        SearchView searchView = (SearchView) view.findViewById(R.id.searchViewId);
+        final SearchView searchView = (SearchView) view.findViewById(R.id.searchViewId);
+
+
+
+       // ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+               // android.R.layout.simple_dropdown_item_1line, weatherInfo.getCityNamesArray());
+
+       // searchView.setSuggestionsAdapter(adapter);
+
+
+
+
 
         //обработка ввода текста и его отправка
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                boolean checkUp = false;
+                int position = 0;
                 //пробегаемся по списку имебщихся город и сравниваем с тем, что ввели. Я понимаю, что нужен некий фильтр еще здесь, но пока  так
                 for (int i = 0; i < weatherInfo.getCityNamesArray().length; i++) {
                     if (weatherInfo.getCityNamesArray()[i].equals(query)) {
-
-                        CityWeatherDescription cwd = CityWeatherDescription.newInstance(i);
-                                               ///--------------------------------------------------
-                        FragmentTransaction ft = ((AppCompatActivity)myContext).getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.initialFramLayoutId,cwd)
-                                .addToBackStack(cwd.getClass().getName())
-                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);    //--------------changed 08.07.2020
-
-                        ft.commit();
-
-
-                        return true;
-                    } else {
-                        Toast.makeText(getActivity(), "No Match found", Toast.LENGTH_LONG).show();
+                        checkUp = true;
+                        position = i;
                     }
-
                 }
-               // test.setData("No Match found");     //записываем результат поиска в класс реальзованный по паттерну singleton
-               // textView.setText(test.data);
+
+
+                if(checkUp){
+                    goTo(position);
+                    searchView.clearFocus(); //-------------------------------------------
+                    return true;
+                }else  Toast.makeText(getActivity(), "No Match found", Toast.LENGTH_LONG).show();
+
                 return false;
             }
 
@@ -131,7 +144,37 @@ public class InitialFragment extends Fragment {
             }
         });
 
+
+       // String[] data = {"Moscow","Tula","Kiev","Tokyo","Kaliningrad"};
+        initRecycleView(view,weatherInfo.getCityNamesArray());
+
+
         return view;
+
+    }
+
+    private void goTo(int i){
+        CityWeatherDescription cwd = CityWeatherDescription.newInstance(i);
+        cwd.setTargetFragment(InitialFragment.this,111);
+        ///--------------------------------------------------
+        FragmentTransaction ft = ((AppCompatActivity)myContext).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.initialFramLayoutId,cwd)
+                .addToBackStack(cwd.getClass().getName())
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);    //--------------changed 08.07.2020
+
+        ft.commit();
+
+
+
+        /*
+        FragmentC fragmentC = FragmentC.newInstance();
+fragmentC.setTargetFragment(FragmentB.this, REQUEST_CODE);
+getFragmentManager().beginTransaction().replace(R.id.container, fragmentC).commit();
+         */
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
     }
 
@@ -140,6 +183,32 @@ public class InitialFragment extends Fragment {
 
 
 
+    }
+    private void initRecycleView(View view,String[] data){
+
+        RecyclerView recyclerView = view.findViewById(R.id.cityWeatherRecycleView);
+        recyclerView.setHasFixedSize(true);
+
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), LinearLayout.VERTICAL);
+        itemDecoration.setDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.separator,null));
+        recyclerView.addItemDecoration(itemDecoration);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(myContext);
+        recyclerView.setLayoutManager(layoutManager);
+
+        TestRecycleViewAdapter adapter = new TestRecycleViewAdapter(data);
+        recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemListener(new TestRecycleViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getActivity(), String.format("%s - %d", ((TextView)view).getText(), position), Toast.LENGTH_SHORT).show();
+                CityWeatherDescription cwd = CityWeatherDescription.newInstance(position);
+                ///--------------------------------------------------
+               goTo(position);
+            }
+
+        });
     }
 }
 

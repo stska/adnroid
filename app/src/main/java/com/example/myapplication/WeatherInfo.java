@@ -3,8 +3,6 @@ package com.example.myapplication;
 //Пока этот класс - модель для активити с детальным описанием погода и этот класс сейчас не прикруче и используется только чутка.
 //TODO прикрутить полноценно класс
 
-import java.io.StringReader;
-
 public class WeatherInfo {
     private String cityName;
     private String cityTemp;
@@ -18,7 +16,7 @@ public class WeatherInfo {
 
     private String[] cityNamesArray = {
             "Moscow",
-            "Saint-Petersburg",
+            "St.Petersburg",
             "Warsaw",
             "New York",
             "Sydney",
